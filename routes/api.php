@@ -13,6 +13,22 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::fallback(function () {
+    return response()->json([
+        'data' => [],
+        'meta' => [
+            'message' => 'Recurso não Encontrado'
+        ]
+    ], 404);
+});
+
+Route::prefix('v1')->group(function ($route) {
+    $route->resource('pessoas', 'PessoaController')->except('create', 'edit');
+
+    //Endereço
+    $route->get('pessoas/{pessoa}/endereco', 'EnderecoController@show');
+    $route->post('pessoas/{pessoa}/endereco', 'EnderecoController@store');
+    $route->put('pessoas/{pessoa}/endereco', 'EnderecoController@update');
+    $route->delete('pessoas/{pessoa}/endereco', 'EnderecoController@destroy');
+
 });

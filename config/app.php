@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'pt-BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -169,11 +169,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Desafio\Providers\AppServiceProvider::class,
+        Desafio\Providers\AuthServiceProvider::class,
+        // Desafio\Providers\BroadcastServiceProvider::class,
+        Desafio\Providers\EventServiceProvider::class,
+        Desafio\Providers\RouteServiceProvider::class,
 
     ],
 
